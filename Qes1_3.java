@@ -1,8 +1,10 @@
 package curriculum_B;
 
-// java.util.Randomパッケージ利用の宣言。
+//java.util.Objectsパッケージ利用の宣言
+import java.util.Objects;
+// java.util.Randomパッケージ利用の宣言
 import java.util.Random;
-// java.util.Scannerパッケージ利用の宣言。
+// java.util.Scannerパッケージ利用の宣言
 import java.util.Scanner;
 
 public class Qes1_3 {
@@ -56,158 +58,97 @@ public class Qes1_3 {
 		// Scannerクラスのインスタンスscanを生成
 		Scanner scan = new Scanner(System.in);
 		
-		// 文字列型変数nameを宣言し、初期化
+		// 文字列型変数を宣言し、初期化
 		String name = null;
 		
-		// 整数型変数registを宣言し、初期化
+		// ユーザー名の登録確認の為に整数型変数を宣言し、初期化
 		int regist = 0;
     
 		 // while文を記述
 		 while(regist < 1) {
 			
-			// 変数nameでnextLineメソッドを使用
-	        name = scan.nextLine();
-        
-	        // 整数型変数numを宣言し、lengthメソッドを使用して変数nameの文字数を取得
-	        int num = name.length();
+			 // nextLineメソッドを使用
+			 name = scan.nextLine();
+			 			 
+			 // if文を記述
+			 if (Objects.isNull(name) || name.isEmpty()) {
 
-	        // if文を記述
-	        if (num >= 11) {
-	        	
-	        	// 変数nameの文字数が10文字より大きい場合「名前を10文字以内にしてください」と出力
-	        	System.out.println("「名前を10文字以内にしてください」");
-	        	
-	        } else if (name == null || name.isEmpty()) {
-	        	
-	        	// 変数nameが0文字以下もしくはnullの場合「名前を入力してください」と出力
-	        	System.out.println("「名前を入力してください」");
-	        	
-	        } else if (name.matches("^[a-zA-Z0-9]+$")){
-	        	
-	        	// 変数nameが正常な値だった場合「ユーザー名「 入力したユーザー名 」を登録しました」と出力
-	        	System.out.println("「ユーザー名「 " + name + " 」を登録しました」");
-	        	
-	        	// 変数nameが正常な値だった場合、変数registを+1する
-	        	regist += 1;
-	        	
-	        } else {
-	        	
-	        	// 変数nameが半角英数字以外の場合「半角英数字のみで名前を入力してください」と出力
-	        	System.out.println("「半角英数字のみで名前を入力してください」");
-	        }
+				// 入力した文字が0文字以下もしくはnullの場合「名前を入力してください」と出力
+				 System.out.println("「名前を入力してください」");
 
-		}
+			 } else if (name.length() >= 11) {
+
+				// 入力した文字数が10文字より大きい場合「名前を10文字以内にしてください」と出力
+				 System.out.println("「名前を10文字以内にしてください」");
+
+			 } else if (name.matches("^[a-zA-Z0-9]+$")){
+
+				 // 入力した文字が正常な値だった場合「ユーザー名「 入力したユーザー名 」を登録しました」と出力
+				 System.out.println("「ユーザー名「 " + name + " 」を登録しました」");
+
+				 // 入力した文字が正常な値だった場合、ユーザー名の登録確認の変数を+1する
+				 regist += 1;
+
+			 } else {
+
+				 // 入力した文字が半角英数字以外の場合「半角英数字のみで名前を入力してください」と出力
+				 System.out.println("「半角英数字のみで名前を入力してください」");
+			 }
+
+		 }
 		 
 		 // Scannerクラスのインスタンスjankenを生成
 		 Scanner janken = new Scanner(System.in);
 
-		 // 整数型変数janken_numを宣言し、初期化
+		 // じゃんけんの回数をカウントする為に整数型変数を宣言し、初期化
 		 int janken_num = 0;
 		 
-		 // 整数型変数win_numを宣言し、初期化
+		 // じゃんけんの勝利判定をする為に整数型変数を宣言し、初期化
 		 int win_num = 0;
-		 
-		 // 文字列型変数jankenTeを宣言し、初期化
-		 String jankenTe = null;
-		 
-		 //	配列jankenHandを宣言し、"グー","チョキ","パー"を格納
-		 String[] jankenHand = {"グー","チョキ","パー"};
 
+		 // じゃんけんの手を判定する為に整数型変数を宣言し、初期化
+		 int input = 0;
+
+		 
 		 // while文を記述
 		 while(win_num < 1) {
 			
-        	
-        	// 整数型変数inputでnextIntメソッドを使用
-            int input = janken.nextInt();
+        	// nextIntメソッドを使用
+            input = janken.nextInt();
             
-            // if文を記述
-            if (input == 0) {
-            	
-            	// 変数inputが0の場合、変数jankenTeに"グー"を代入
-            	jankenTe = jankenHand[0];
-            	
-            } else if (input == 1) {
-            	
-            	// 変数inputが1の場合、変数jankenTeに"チョキ"を代入
-            	jankenTe = jankenHand[1];
-            	
-            } else if (input == 2) {
-            	
-            	// 変数inputが2の場合、変数jankenTeに"パー"を代入
-            	jankenTe = jankenHand[2];
-            	
-            } else {
-            	
-            	// 変数inputが0～2以外の場合、「0～2の数字を入力してください」と出力
-            	System.out.println("「0～2の数字を入力してください」");
-            	
-            	// 変数inputが0～2以外の場合、再度入力を行う
-            	continue;
-            }
+            // 配列を宣言し、自身とcpuそれぞれの"グー","チョキ","パー"を格納
+   		 	String[] myHand = {name +"の手は「グー」",name +"の手は「チョキ」",name +"の手は「パー」"};
+   		 	String[] cpuHand = {"相手の手は「グー」" + "\n","相手の手は「チョキ」" + "\n","相手の手は「パー」" + "\n"};
+   		 	
+   		 	// if文を記述
+   		 	if(input < 3) {
+   		 		
+   		 		// 入力した数字が0～2であれば自身の手を出力
+   		 		System.out.println(myHand[input]);
+   		 		
+   		 	} else {
+   		 		
+   		 		// 入力した数字が0～2以外であれば"0～2の値を入力してください"と出力し、再度数字入力に戻る
+   		 		System.out.println("0～2の値を入力してください");
+   		 		continue;
+   		 	}
+   		 
 
-            // 処理を繰り返す毎に、変数janken_numを＋1する
+            // 処理を繰り返す毎に、じゃんけんの回数をカウントする変数の値を＋1する
             janken_num++;
             
-            // RandomクラスのインスタンスcpuTeを初期化
-            Random cpuTe = new Random();
+            // Randomクラスのインスタンスを初期化
+            Random cpu = new Random();
             
-            // 整数型変換cpuInputを宣言し、nextIntメソッドを使用して0以上3未満の乱数を取得
-            int cpuInput = cpuTe.nextInt(3);
+            // 整数型変換を宣言し、nextIntメソッドを使用して0以上3未満の乱数を取得
+            int cpuInput = cpu.nextInt(3);
             
-            // 文字列型変数jankenCpuを宣言し、初期化
-            String jankenCpu = null;
+            // ランダムな数字に応じてcpuの手を出力
+            System.out.println(cpuHand[cpuInput]);
+		 
             
             // if文を記述
-            if (cpuInput == 0) {
-            	
-            	// ランダムで代入された値が0の場合、変数jankenCpuに"グー"を代入
-            	jankenCpu = jankenHand[0];
-            	
-            } else if (cpuInput == 1) {
-            	
-            	// ランダムで代入された値が1の場合、変数jankenCpuに"チョキ"を代入
-            	jankenCpu = jankenHand[1];
-            	
-            } else if (cpuInput == 2) {
-            	
-            	// ランダムで代入された値が2の場合、変数jankenCpuに"パー"を代入
-            	jankenCpu = jankenHand[2];
-            }
-            
-            // 自身の手を出力
-            System.out.println(name + "の手は「" + jankenTe + "」" );
-            // 相手の手を出力
-            System.out.println("相手の手は「" + jankenCpu + "」"  + "\n");
-
-            // if文を記述
-            if (input == 0 && cpuInput == 1) {
-            	
-            	// 自身の手が "グー"、相手の手が "チョキ"の場合に出力
-            	System.out.println("やるやん。");
-            	System.out.println("次は俺にリベンジさせて" + "\n");
-            	
-            	// 変数win_numを+1
-            	win_num++;
-            	
-            } else if (input == 1 && cpuInput == 2) {
-            	
-            	// 自身の手が "チョキ"、相手の手が "パー"の場合に出力
-            	System.out.println("やるやん。");
-            	System.out.println("次は俺にリベンジさせて" + "\n");
-            	
-            	// 変数win_numを+1
-            	win_num++;
-            	
-            } else if (input == 2 && cpuInput == 0) {
-            	
-            	// 自身の手が "パー"、相手の手が "グー"の場合に出力
-            	System.out.println("やるやん。");
-            	System.out.println("次は俺にリベンジさせて" + "\n");
-            	
-            	// 変数win_numを+1
-            	win_num++;
-            	
-            } else if (input == 0 && cpuInput == 0 || input == 1 && cpuInput == 1 || input == 2 && cpuInput == 2) {
+            if (input == 0 && cpuInput == 0 || input == 1 && cpuInput == 1 || input == 2 && cpuInput == 2) {
             	
             	// あいこの場合に出力
             	System.out.println("DRAW あいこ もう一回しましょう！");
@@ -232,19 +173,23 @@ public class Qes1_3 {
             	System.out.println("俺の勝ち！");
             	System.out.println("たかがじゃんけん、そう思ってないですか？");
             	System.out.println("それやったら次も、俺が勝ちますよ");
-            }
-
-            // if文を記述
-            if (win_num == 1) {
             	
-            	// 変数win_numが1の場合、処理を終了させる
-            	break;
+            } else {
+            	
+            	// じゃんけんに勝った場合に出力
+            	System.out.println("やるやん。");
+            	System.out.println("次は俺にリベンジさせて" + "\n");
+            	
+            	// じゃんけんの勝利判定の変数の値を+1
+            	win_num++;
             }
+            
 		 }
-		 
+
 		 // 勝つまでにかかった合計回数を出力
-		 System.out.println("勝つまでにかかった合計回数は" + janken_num + "です");
+		 System.out.println("勝つまでにかかった合計回数は" + janken_num + "回です");
         
 	}
 
 }
+
