@@ -58,13 +58,14 @@ public class Qes1_3 {
 		// Scannerクラスのインスタンスscanを生成
 		Scanner scan = new Scanner(System.in);
 		
-		// 文字列型変数を宣言し、初期化
+		// ユーザー名入力の為に文字列型変数を宣言し、初期化
 		String name = null;
 		
 		// ユーザー名の登録確認の為に整数型変数を宣言し、初期化
 		int regist = 0;
+		
     
-		 // while文を記述
+		 // while文を記述し、ユーザー名が登録出来るまで繰り返し処理
 		 while(regist < 1) {
 			
 			 // nextLineメソッドを使用
@@ -95,11 +96,9 @@ public class Qes1_3 {
 				 System.out.println("「半角英数字のみで名前を入力してください」");
 			 }
 
-		 }
-		 
-		 // Scannerクラスのインスタンスjankenを生成
-		 Scanner janken = new Scanner(System.in);
+		 }		 
 
+		 
 		 // じゃんけんの回数をカウントする為に整数型変数を宣言し、初期化
 		 int janken_num = 0;
 		 
@@ -110,21 +109,20 @@ public class Qes1_3 {
 		 int input = 0;
 
 		 
-		 // while文を記述
+		 // while文を記述し、じゃんけんに勝つまで繰り返し処理
 		 while(win_num < 1) {
 			
         	// nextIntメソッドを使用
-            input = janken.nextInt();
+            input = scan.nextInt();
             
-            // 配列を宣言し、自身とcpuそれぞれの"グー","チョキ","パー"を格納
-   		 	String[] myHand = {name +"の手は「グー」",name +"の手は「チョキ」",name +"の手は「パー」"};
-   		 	String[] cpuHand = {"相手の手は「グー」" + "\n","相手の手は「チョキ」" + "\n","相手の手は「パー」" + "\n"};
+            // 配列を宣言し、"グー","チョキ","パー"を格納
+            String[] jankenHand = {"「グー」","「チョキ」","「パー」"};
    		 	
    		 	// if文を記述
-   		 	if(input < 3) {
+   		 	if(input <= 2) {
    		 		
    		 		// 入力した数字が0～2であれば自身の手を出力
-   		 		System.out.println(myHand[input]);
+   		 		System.out.println(name +"の手は" + jankenHand[input]);
    		 		
    		 	} else {
    		 		
@@ -133,22 +131,21 @@ public class Qes1_3 {
    		 		continue;
    		 	}
    		 
-
             // 処理を繰り返す毎に、じゃんけんの回数をカウントする変数の値を＋1する
             janken_num++;
             
-            // Randomクラスのインスタンスを初期化
+            // Randomクラスのインスタンスcpuを生成
             Random cpu = new Random();
             
             // 整数型変換を宣言し、nextIntメソッドを使用して0以上3未満の乱数を取得
             int cpuInput = cpu.nextInt(3);
             
             // ランダムな数字に応じてcpuの手を出力
-            System.out.println(cpuHand[cpuInput]);
+            System.out.println("相手の手は" + jankenHand[cpuInput] + "\n");
 		 
             
             // if文を記述
-            if (input == 0 && cpuInput == 0 || input == 1 && cpuInput == 1 || input == 2 && cpuInput == 2) {
+            if (input == cpuInput) {
             	
             	// あいこの場合に出力
             	System.out.println("DRAW あいこ もう一回しましょう！");
@@ -188,6 +185,9 @@ public class Qes1_3 {
 
 		 // 勝つまでにかかった合計回数を出力
 		 System.out.println("勝つまでにかかった合計回数は" + janken_num + "回です");
+		 
+		// closeメソッドを使用してScannerを閉じる
+		 scan.close();
         
 	}
 
