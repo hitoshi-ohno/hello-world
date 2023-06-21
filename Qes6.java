@@ -18,18 +18,18 @@ public class Qes6 {
 		// 配列を宣言し、入力した値を“、”で区切って格納
 		String[] product = input.split("、");
 
-		// Randomクラスのインスタンスrandを生成
-		Random rand = new Random();
-
 		// 整数型変数を宣言し、配列の要素を出力する際に使用
 		int num = 0;
+
+		// Randomクラスのインスタンスrandを生成
+		Random rand = new Random();
 
 		// 整数型変数を宣言し、nextIntメソッドを使用して0以上12未満の乱数を取得
 		// テレビの台数をカウントする為の変数として使用
 		int tv = rand.nextInt(12);
 
 		// 拡張for文を記述
-		for (String test : product) {
+		for (String output : product) {
 
 			// 整数型変数を宣言し、nextIntメソッドを使用して0以上12未満の乱数を取得
 			int cpuInput = rand.nextInt(12);
@@ -39,54 +39,57 @@ public class Qes6 {
 
 			// 入力した値が“パソコン”の場合の処理を記述
 			case "パソコン":
-				System.out.println(product[num] + "の残り台数は" + cpuInput + "台です");
+				System.out.println(output + "の残り台数は" + cpuInput + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“冷蔵庫”の場合の処理を記述
 			case "冷蔵庫":
-				System.out.println(product[num] + "の残り台数は" + cpuInput + "台です");
+				System.out.println(output + "の残り台数は" + cpuInput + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“扇風機”の場合の処理を記述
 			case "扇風機":
-				System.out.println(product[num] + "の残り台数は" + cpuInput + "台です");
+				System.out.println(output + "の残り台数は" + cpuInput + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“洗濯機”の場合の処理を記述
 			case "洗濯機":
-				System.out.println(product[num] + "の残り台数は" + cpuInput + "台です");
+				System.out.println(output + "の残り台数は" + cpuInput + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“加湿器”の場合の処理を記述
 			case "加湿器":
-				System.out.println(product[num] + "の残り台数は" + cpuInput + "台です");
+				System.out.println(output + "の残り台数は" + cpuInput + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“テレビ”の場合の処理を記述
 			case "テレビ":
-				System.out.println(product[num] + "の残り台数は" + tv + "台です");
+				System.out.println(output + "の残り台数は" + tv + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が“ディスプレイ”の場合の処理を記述
 			case "ディスプレイ":
-				System.out.println(product[num] + "の残り台数は" + (11 - tv) + "台です");
+				System.out.println(output + "の残り台数は" + (11 - tv) + "台です" + "\n");
 				num++;
 				break;
 
 			// 入力した値が上記以外の場合の処理を記述
 			default:
-				System.out.println("『" + product[num] + "』は指定の商品ではありません");
+				System.out.println("『" + output + "』は指定の商品ではありません" + "\n");
 				num++;
-				
+
 			}
 
 		}
+
+		// closeメソッドを使用してScannerを閉じる
+		scan.close();
 
 	}
 
