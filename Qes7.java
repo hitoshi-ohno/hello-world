@@ -25,8 +25,8 @@ public class Qes7 {
 
 		}
 
-		// 配列を宣言し、"『英語』",  "『数学』",  "『理科』", "『社会』"を格納
-		String[] subject = { "『英語』", "『数学』", "『理科』", "『社会』" };
+		// 配列を宣言し、"英語",  "数学",  "理科", "社会"を格納
+		String[] subject = { "英語", "数学", "理科", "社会" };
 
 		// 2次元配列を宣言
 		// 配列の数は科目数、各配列の要素数は入力した生徒数とする
@@ -39,12 +39,12 @@ public class Qes7 {
 			for (int num_subject = 0; num_subject < subject.length; num_subject++) {
 
 				// 1科目の点数を入力する度に2次元配列に格納
-				System.out.print((num_student + 1) + "人目の" + subject[num_subject] + "の点数を入力してください：");
+				System.out.print((num_student + 1) + "人目の『" + subject[num_subject] + "』の点数を入力してください：");
 				score[num_subject][num_student] = scan.nextInt();
 
 				// if文を記述し、4科目の点数入力が完了する度に改行
 				if (num_subject >= (subject.length - 1)) {
-					
+
 					System.out.println();
 
 				}
@@ -85,89 +85,40 @@ public class Qes7 {
 		// 全員分の平均点が出力し終わったら改行
 		System.out.println();
 
-		// 整数型変数を宣言し、英語の点数を合算した回数をカウント
-		int count = 0;
+		// 科目の数だけ繰り返し処理
+		for (int num_subject = 0; num_subject < subject.length; num_subject++) {
 
-		// 倍精度浮動小数点数型変数を宣言し、合算した英語の点数を格納
-		double sum_english = 0d;
+			// 整数型変数を宣言し、点数を合算した回数をカウント
+			int count = 0;
 
-		// for文を記述し、全生徒の英語の点数を合算
-		for (int english = 0; english < score[0].length; english++) {
+			// 倍精度浮動小数点数型変数を宣言し、合算した点数を格納
+			double sum_subject = 0;
 
-			// 点数を配列に格納して合算
-			sum_english += score[0][english];
+			// 生徒の数だけ繰り返し処理
+			for (int num_student = 0; num_student < score[num_subject].length; num_student++) {
 
-			// 点数を合算した回数をカウント
-			count++;
+				// 点数を配列に格納して合算
+				sum_subject += score[num_subject][num_student];
 
-		}
+				// 点数を合算した回数をカウント
+				count++;
 
-		// 整数型変数を宣言し、数学の点数を合算した回数をカウント
-		count = 0;
+				// if文を記述し、全生徒の1科目の合算が終わる度に平均点を出力
+				if (num_student >= (score[num_subject].length - 1)) {
 
-		// 倍精度浮動小数点数型変数を宣言し、合算した数学の点数を格納
-		double sum_math = 0d;
+					// 平均点を出力
+					System.out.println(
+							subject[num_subject] + "の平均点は" + String.format("%.2f", sum_subject / count) + "点です。");
 
-		// for文を記述し、全生徒の数学の点数を合算
-		for (int math = 0; math < score[1].length; math++) {
+				}
 
-			// 点数を配列に格納して合算
-			sum_math += score[1][math];
-			
-			// 点数を合算した回数をカウント
-			count++;
+			}
 
 		}
-
-		// 整数型変数を宣言し、理科の点数を合算した回数をカウント
-		count = 0;
-
-		// 倍精度浮動小数点数型変数を宣言し、合算した理科の点数を格納
-		double sum_science = 0d;
-
-		// for文を記述し、全生徒の理科の点数を合算
-		for (int science = 0; science < score[2].length; science++) {
-
-			// 点数を配列に格納して合算
-			sum_science += score[2][science];
-			
-			// 点数を合算した回数をカウント
-			count++;
-
-		}
-
-		// 整数型変数を宣言し、社会の点数を合算した回数をカウント
-		count = 0;
-
-		// 倍精度浮動小数点数型変数を宣言し、合算した社会の点数を格納
-		double sum_society = 0d;
-
-		// for文を記述し、全生徒の社会の点数を合算
-		for (int society = 0; society < score[3].length; society++) {
-
-			// 点数を配列に格納して合算
-			sum_society += score[3][society];
-			
-			// 点数を合算した回数をカウント
-			count++;
-
-		}
-
-		// 英語の平均点を出力
-		System.out.println("英語の平均点は" + String.format("%.2f", sum_english / count) + "点です。");
-
-		// 数学の平均点を出力
-		System.out.println("数学の平均点は" + String.format("%.2f", sum_math / count) + "点です。");
-
-		// 理科の平均点を出力
-		System.out.println("理科の平均点は" + String.format("%.2f", sum_science / count) + "点です。");
-
-		// 社会の平均点を出力
-		System.out.println("社会の平均点は" + String.format("%.2f", sum_society / count) + "点です。");
 
 		// 整数型変数を宣言し、全体の点数を合算
-		count = 0;
-		
+		int count = 0;
+
 		// 倍精度浮動小数点数型変数を宣言し、合算した点数を格納
 		double sum = 0d;
 
@@ -179,7 +130,7 @@ public class Qes7 {
 
 				// 点数を配列に格納して合算
 				sum += score[total_score][total_student];
-				
+
 				// 点数を合算した回数をカウント
 				count++;
 
