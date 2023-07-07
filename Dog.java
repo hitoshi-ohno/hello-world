@@ -31,7 +31,6 @@ public class Dog {
 
 	// 動物の数を出力するメソッドの記述
 	public void animal_count() {
-		count = 2;
 		System.out.println(this.count + "\n");
 	}
 
