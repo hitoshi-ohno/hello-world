@@ -31,7 +31,7 @@ public class Qes22_2 {
 	public String meal;
 
 	// 変数に指定の値を代入するコンストラクタを作成
-	public Qes22_2(String japan, String food, String meal) {
+	public Qes22_2() {
 
 		// 変数に国名を代入するコンストラクタを作成
 		this.country = "日本";

@@ -33,7 +33,7 @@ public class Qes22_1 {
 	public static void main(String[] args) {
 
 		// クラスを呼び出し、値を代入
-		Qes22_2 process = new Qes22_2("日本", "寿司", "和食");
+		Qes22_2 process = new Qes22_2();
 
 		// if文を記述し、nullチェック
 		if (Objects.isNull(process.country) || Objects.isNull(process.food) || Objects.isNull(process.meal)) {
