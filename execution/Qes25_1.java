@@ -1,5 +1,7 @@
 package execution;
 
+import java.util.Scanner;
+
 import process.Qes25_3;
 
 //実行用
@@ -33,11 +35,20 @@ public class Qes25_1 {
 		// クラスを呼び出し、値を代入
 		Qes25_3 adventure = new Qes25_3();
 
+		// Scannerクラスのインスタンスscanを生成
+		Scanner scan = new Scanner(System.in);
+
+		// 名前のsetterメソッドに入力した値を渡す
+		adventure.setName(scan.nextLine());
+
 		// 名前を出力
 		adventure.my_name();
 
 		// ステータスを出力
 		adventure.my_status();
+
+		// closeメソッドを使用してScannerを閉じる
+		scan.close();
 
 	}
 
