@@ -1,7 +1,5 @@
 package process;
 
-import java.util.Scanner;
-
 // スーパークラス
 public class Qes25_2 {
 
@@ -44,14 +42,8 @@ public class Qes25_2 {
 	// 変数に指定の値を代入するコンストラクタを作成
 	public Qes25_2() {
 
-		// Scannerクラスのインスタンスscanを生成
-		Scanner scan = new Scanner(System.in);
-
-		// nextLineメソッドを使用
-		this.name = scan.nextLine();
-
-		// closeメソッドを使用してScannerを閉じる
-		scan.close();
+		// 名前の変数を初期化
+		this.name = null;
 
 	}
 
