@@ -28,21 +28,6 @@ public class Qes25_3 extends Qes25_2 {
 	 
 	 */
 
-	// フィールドにHPの文字列型変数を宣言
-	private String hp;
-
-	// フィールドにMPの文字列型変数を宣言
-	private String mp;
-
-	// フィールドに攻撃力の文字列型変数を宣言
-	private String attack;
-
-	// フィールドに素早さの文字列型変数を宣言
-	private String speed;
-
-	// フィールドに防御力の文字列型変数を宣言
-	private String defense;
-
 	// フィールドにHPの能力値の変数を宣言
 	private int hp_parameter;
 
@@ -63,21 +48,6 @@ public class Qes25_3 extends Qes25_2 {
 
 		// Randomクラスのインスタンスcpuを生成
 		Random rand = new Random();
-
-		// 変数に「HP：」を代入するコンストラクタを作成
-		this.hp = "HP：";
-
-		// 変数に「MP：」を代入するコンストラクタを作成
-		this.mp = "MP：";
-
-		// 変数に「攻撃力：」を代入するコンストラクタを作成
-		this.attack = "攻撃力：";
-
-		// 変数に「素早さ：」を代入するコンストラクタを作成
-		this.speed = "素早さ：";
-
-		// 変数に「防御力：」を代入するコンストラクタを作成
-		this.defense = "防御力：";
 
 		// nextIntメソッドを使用し、HPの能力値の変数に乱数を代入するコンストラクタを作成
 		this.hp_parameter = rand.nextInt(1000) + 1;
@@ -102,19 +72,19 @@ public class Qes25_3 extends Qes25_2 {
 		System.out.println("ステータス");
 
 		// HPを出力
-		System.out.println(this.hp + this.hp_parameter);
+		System.out.println("HP：" + this.hp_parameter);
 
 		// MPを出力
-		System.out.println(this.mp + this.mp_parameter);
+		System.out.println("MP：" + this.mp_parameter);
 
 		// 攻撃力を出力
-		System.out.println(this.attack + this.attack_parameter);
+		System.out.println("攻撃力：" + this.attack_parameter);
 
 		// 素早さを出力
-		System.out.println(this.speed + this.speed_parameter);
+		System.out.println("素早さ：" + this.speed_parameter);
 
 		// 防御力を出力
-		System.out.println(this.defense + this.defense_parameter + "\n");
+		System.out.println("防御力：" + this.defense_parameter + "\n");
 
 		System.out.println("さあ冒険に出かけよう！");
 
