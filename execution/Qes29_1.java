@@ -48,11 +48,21 @@ public class Qes29_1 {
 		// クラスを呼び出し、値を代入
 		Qes29_2 cities = new Qes29_2();
 
+		// 入力指示をコンソール出力
+		System.out.println("0～10の数字をカンマ区切りで入力して下さい");
+
 		// Scannerクラスのインスタンスscanを生成
 		Scanner scan = new Scanner(System.in);
 
 		// 入力する数値のsetterメソッドに入力した値を渡す
 		cities.setInputNum(scan.nextLine());
+
+		// 入力指示をコンソール出力
+		System.out.println("昇順,降順どちらにしますか");
+		System.out.println("昇順なら0、降順なら1を入力してください");
+
+		// 昇順、降順を判定する数値のsetterメソッドに入力した値を渡す
+		cities.setSortBy(scan.nextInt());
 
 		// 都道府県の情報を出力
 		cities.output();
