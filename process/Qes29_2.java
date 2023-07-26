@@ -1,6 +1,7 @@
 package process;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Qes29_2 {
 
@@ -54,13 +55,44 @@ public class Qes29_2 {
 		this.inputNum = inputNum;
 	}
 
+	// フィールドに昇順、降順を判定する数値の変数を宣言
+	private int sortBy;
+
+	// フィールドに昇順、降順を判定する数値のgetterメソッド
+	public int getSortBy() {
+		return sortBy;
+	}
+
+	// フィールドに昇順、降順を判定する数値のsetterメソッド
+	public void setSortBy(int sortBy) {
+		this.sortBy = sortBy;
+	}
+
 	public void output() {
 
 		// 入力した数値を","で区切って格納
 		String[] input = this.inputNum.split(",");
 
-		// 格納した数値を昇順にする
-		Arrays.sort(input);
+		// if文を記述し、昇順か降順かを判定
+		if (this.sortBy == 0) {
+
+			// 格納した数値を昇順にする
+			Arrays.sort(input);
+
+		} else if (this.sortBy == 1) {
+
+			// 格納した数値を降順にする
+			Arrays.sort(input, Collections.reverseOrder());
+
+		} else {
+
+			// 入力した値が0か1でない場合に出力
+			System.out.println("0か1を入力してください");
+
+			// 入力した値が0か1でない場合、処理を停止
+			System.exit(0);
+
+		}
 
 		// 整数型変数を宣言し、配列の要素を出力する際に使用
 		int count = 0;
@@ -142,7 +174,7 @@ public class Qes29_2 {
 
 			// 入力した値が“3”の場合の処理を記述
 			case "3":
-				System.out.println("都道府県名：" + city3[3]);
+				System.out.println("都道府県名：" + city3[0]);
 				System.out.println("　　県庁所在地：" + city3[1]);
 				System.out.println("　　面積：" + city3[2] + ".0km2" + "\n");
 				count++;
